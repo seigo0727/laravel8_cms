@@ -20,6 +20,7 @@ class CreateSideMenuItemsTable extends Migration
             $table->text('type')->nullable();
             $table->text('icon')->nullable();
             $table->text('route')->nullable();
+            $table->text('belong_to')->nullable();
             $table->text('privilege')->nullable();
             $table->sortable();
             $table->status();

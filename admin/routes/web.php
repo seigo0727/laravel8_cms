@@ -20,3 +20,12 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::prefix('master')->name('master.')->group(function () {
+    Route::prefix('side_menu_items')->name('side_menu_item.')->group(function () {
+        Route::get('/', [App\Http\Controllers\Master\SideMenuItemController::class, 'index'])->name('index');
+        Route::get('/create', [App\Http\Controllers\Master\SideMenuItemController::class, 'create'])->name('create');
+        Route::get('/{id}/edit', [App\Http\Controllers\Master\SideMenuItemController::class, 'edit'])->name('edit');
+        Route::get('/index_json', [App\Http\Controllers\Master\SideMenuItemController::class, 'indexJson'])->name('index_json');
+    });
+});
